@@ -1,0 +1,9 @@
+calc1
+calc2
+calc3a
+calc3b
+calc3g
+calc3i
+*.o
+y.tab.*
+lex.yy.*
