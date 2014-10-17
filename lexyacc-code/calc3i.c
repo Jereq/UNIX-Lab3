@@ -103,9 +103,10 @@ int ex(nodeType *p)
 				break;
 			case '/':
 				printf("\txorl\t%%edx, %%edx\n");
+				printf("\tpopl\t%%ebx\n");
 				printf("\tpopl\t%%eax\n");
-				printf("\tidivl\t(%%esp)\n");
-				printf("\tmovl\t%%eax, (%%esp)\n");
+				printf("\tidivl\t%%ebx\n");
+				printf("\tpushl\t%%eax\n");
 				break;
 			case '<':
 				printf("\tpopl\t%%eax\n");
