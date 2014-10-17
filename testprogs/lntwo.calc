@@ -1,0 +1,3 @@
+print lntwo 1024;
+print lntwo 1073741824;
+print lntwo 1073741823;
