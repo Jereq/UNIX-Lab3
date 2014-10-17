@@ -34,4 +34,3 @@ fact:
 lntwo:
 	bsrl	4(%esp), %eax
 	ret
-	

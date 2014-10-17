@@ -1,4 +1,4 @@
-all: calc1 calc2 calc3a calc3b calc3g calc3i
+all: calc1 calc2 calc3a calc3b calc3g calc3i calc3c
 
 calc1:
 	bison -y -d calc1.y
@@ -29,6 +29,9 @@ calc3g: calc3.y.o calc3.l.o calc3g.c
 	
 calc3i: calc3.y.o calc3.l.o calc3i.c libfuncs.a
 	gcc calc3.y.o calc3.l.o calc3i.c -o calc3i
+	
+calc3c: calc3.y.o calc3.l.o calc3c.c
+	gcc calc3.y.o calc3.l.o calc3c.c -o calc3c
 	
 libfuncs.a: libfuncs.o
 	ar rcs $@ $<
