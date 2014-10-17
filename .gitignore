@@ -7,3 +7,8 @@ calc3i
 *.o
 y.tab.*
 lex.yy.*
+a.out
+calc3.l.c
+calc3.y.c
+calc3.y.h
+tmp*

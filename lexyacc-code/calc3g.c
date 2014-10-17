@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include "calc3.h"
-#include "y.tab.h"
+#include "calc3.y.h"
 
 int del = 1; /* distance of graph columns */
 int eps = 3; /* distance of graph lines */
