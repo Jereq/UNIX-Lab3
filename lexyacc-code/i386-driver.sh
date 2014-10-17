@@ -1,6 +1,16 @@
 #!/bin/sh
 
-./calc3i <$1 >tmp.s
-cat prologue.s tmp.s epilogue.s >tmp2.s
-as -gstabs tmp2.s -o tmp.o
-gcc -lc -o a.out tmp.o
+calcSourceFilename=$(basename "$1")
+origExtension="${calcSourceFilename##*.}"
+origName="${calcSourceFilename%.*}"
+
+asmSourceFilename="${origName}.s"
+
+tempSourceFilename=$(tempfile)
+tempObjectFilename=$(tempfile)
+trap 'rm "$tempSourceFilename" "$tempObjectFilename"' 0 1 2 3 15
+
+./calc3i <$1 >"$tempSourceFilename"
+cat prologue.s "$tempSourceFilename" epilogue.s >"$asmSourceFilename"
+as -gstabs "$asmSourceFilename" -o "$tempObjectFilename"
+gcc -lc -o "$origName" "$tempObjectFilename"
