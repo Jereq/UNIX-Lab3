@@ -12,3 +12,4 @@ calc3.l.c
 calc3.y.c
 calc3.y.h
 tmp*
+libfuncs.a

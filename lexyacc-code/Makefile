@@ -27,8 +27,11 @@ calc3b: calc3.y.o calc3.l.o calc3b.c
 calc3g: calc3.y.o calc3.l.o calc3g.c
 	gcc calc3.y.o calc3.l.o calc3g.c -o calc3g
 	
-calc3i: calc3.y.o calc3.l.o calc3i.c
+calc3i: calc3.y.o calc3.l.o calc3i.c libfuncs.a
 	gcc calc3.y.o calc3.l.o calc3i.c -o calc3i
+	
+libfuncs.a: libfuncs.o
+	ar rcs $@ $<
 	
 .c.o:
 	gcc -c $< -o $@

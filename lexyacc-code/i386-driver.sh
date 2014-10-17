@@ -13,4 +13,4 @@ trap 'rm "$tempSourceFilename" "$tempObjectFilename"' 0 1 2 3 15
 ./calc3i <$1 >"$tempSourceFilename"
 cat prologue.s "$tempSourceFilename" epilogue.s >"$asmSourceFilename"
 as -gstabs "$asmSourceFilename" -o "$tempObjectFilename"
-gcc -lc -o "$origName" "$tempObjectFilename"
+gcc -o "$origName" "$tempObjectFilename" -lc -L. -lfuncs
