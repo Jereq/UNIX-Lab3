@@ -102,9 +102,9 @@ int ex(nodeType *p)
 				printf("\tmovl\t%%eax, (%%esp)\n");
 				break;
 			case '/':
-				printf("\txorl\t%%edx, %%edx\n");
 				printf("\tpopl\t%%ebx\n");
 				printf("\tpopl\t%%eax\n");
+				printf("\tcdq\n");
 				printf("\tidivl\t%%ebx\n");
 				printf("\tpushl\t%%eax\n");
 				break;
